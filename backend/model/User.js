@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
   fullName: { type: String, required: true },
   age: { type: Number, required: true },
-  currentStudies: { type: String, enum: ["school", "inter", "degree"], required: true },
+  currentStudies: { type: String,  required: true },
   subOption: { type: String }, // dynamic dropdown based on currentStudies
   state: { type: String, required: true },
   district: { type: String, required: true },

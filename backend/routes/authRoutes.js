@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { register, login } = require("../controllers/authController");
+const { register, login,getAllUsers } = require("../controllers/authController");
 
 /**
  * @swagger
@@ -31,7 +31,6 @@ const { register, login } = require("../controllers/authController");
  *                 type: integer
  *               currentStudies:
  *                 type: string
- *                 enum: [school, inter, degree]
  *               subOption:
  *                 type: string
  *               state:
@@ -79,5 +78,17 @@ router.post("/signup", register);
  *         description: Login successful
  */
 router.post("/login", login);
+
+/**
+ * @swagger
+ * /api/auth/users:
+ *   get:
+ *     summary: Get all registered users
+ *     responses:
+ *       200:
+ *         description: List of all users
+ */
+router.get("/users", getAllUsers);
+
 
 module.exports = router;
